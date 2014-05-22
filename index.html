@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><title>NaCl SFI model on x86-64 systems - The Chromium Projects</title><meta http-equiv="Content-Type" content="text/html;charset=utf-8"/><link rel="canonical" href="http://archive.today/XgOy5"/><style type="text/css">@font-face {
+font-family:ie-sites-symbol-font;
+src: url(1aa5b43c2f2a7a70a64b64ddfb03964950c281db.eot);
+}
+@font-face {
+font-family:non-ie-sites-symbol-font;
+src: url(5c53eb1d2a0f6ada4906a2921b08006d6b006ae6.ttf);
+}
+</style></head><body style="margin:0;background-color:white;width:1024px"><div class="html1" style="width: 1024px;text-align: left;overflow-x: auto;overflow-y: auto; background-color: rgb(247, 247, 247);position: relative;min-height: 3042px;; z-index: 0"><div class="html" style="text-align:left;direction:ltr;overflow-x:visible;overflow-y:visible;margin: 0px; padding: 0px; ">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Home of the Chromium Open Source Project"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="body" style="vertical-align:bottom;min-height:3042px;text-align:left;direction:ltr;font:normal normal normal 10pt/normal Arial, sans-serif;font-family:Arial, Verdana, sans-serif;color:rgb(0, 0, 0);overflow-x:visible;overflow-y:visible;margin: 0px; padding: 0px; ">
+
+
+<div style="text-align:left;zoom:1;font-size:13px;background-color: rgb(255, 255, 255); font-family:arial, sans-serif;border-width: medium; border-style: none; ">
+<div style="position:absolute;width:100%;z-index:1010;text-align:center;top:2px;display:none;"><div style="color:rgb(0, 0, 0);display:inline;text-align:center;bottom:0px;background-color: rgb(249, 237, 190); margin-bottom:-15px;z-index:199;box-shadow:rgba(0, 0, 0, 0.199219) 0px 2px 4px;border-top-left-radius:2px 2px;border-top-right-radius:2px 2px;border-bottom-right-radius:2px 2px;border-bottom-left-radius:2px 2px;-webkit-box-shadow:rgba(0, 0, 0, 0.199219) 0px 2px 4px;-moz-transform:scale(1);-ms-transform:scale(1);-o-transform:scale(1);-webkit-transform:scale(1);font:normal normal normal 11px/normal Arial, Helvetica, sans-serif;border-width: 1px; border-style: solid; padding: 2px 10px 3px; border-color: rgb(240, 195, 109); ">
+</div></div>
+</div>
+<div style="text-align:left;">
+<div style="text-align:left;width:100%;min-width:100%;background-image:none;background-position: 50% 0%; background-repeat: no-repeat; margin: 0px auto; ">
+<div style="text-align:left;direction:ltr;width:100%;margin: auto; ">
+<div style="text-align:left;">
+<div style="text-align:left;height:auto;border-width: medium medium 0px; border-style: none; ">
+<table style="border-collapse:separate;border-spacing:0px;text-align:left;width:100%;table-layout:fixed;height:auto;margin: 0px; ">
+<tbody style="text-align:left;"><tr style="text-align:left;">
+<td style="color:rgb(0, 0, 0);text-align:left;vertical-align:top;padding-left:5px;overflow-x:visible;overflow-y:visible;height:48px;"><div style="text-align:left;padding-top:7px;"><a href="https://archive.today/o/XgOy5/http://www.chromium.org/" target="_blank" style="text-align:left;color:rgb(0, 102, 204);outline: invert none medium; "><img alt="The Chromium Projects" src="ffc86b1a5524ff909a92593f33f874aa2171df74.png" style="text-align:left;float:left;background-color: transparent; border-width: 0px; border-style: none; padding: 0px 10px 0px 0px; border-color: white; "/></a><h2 style="text-align:left;font-size:24px;font-weight:bold;margin: 0px; "><a href="https://archive.today/o/XgOy5/http://www.chromium.org/" target="_blank" style="direction:ltr;text-align:left;text-decoration:none;color:rgb(0, 0, 0);outline: invert none medium; ">The Chromium Projects</a></h2></div></td><td style="color:rgb(0, 0, 0);text-align:right;padding-right:6px;vertical-align:top;"><div style="padding-top:7px;"><form action="javascript:void(0)" style="position:relative;display:inline-block;margin: 0px; padding: 0px; "><input type="hidden" name="scope" value="search-site" style="text-align:left;"/><input name="q" value="" style="text-align:left;height:29px;background-color: rgb(255, 255, 255); color:rgb(51, 51, 51);display:inline-block;border-top-left-radius:1px 1px;border-top-right-radius:1px 1px;border-bottom-right-radius:1px 1px;border-bottom-left-radius:1px 1px;box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; line-height:27px;vertical-align:middle;border-width: 1px; border-style: solid; padding: 0px 8px; border-color: rgb(192, 192, 192) rgb(217, 217, 217) rgb(217, 217, 217); "/><div style="position:relative;display:inline-block;margin-left:6px;"><div style="border-top-left-radius:2px 2px;border-top-right-radius:2px 2px;border-bottom-right-radius:2px 2px;border-bottom-left-radius:2px 2px;cursor:default;font-size:11px;font-weight:bold;text-align:center;white-space:nowrap;line-height:27px;min-width:54px;-webkit-box-shadow:none;box-shadow:none;background-color: rgb(245, 245, 245); background-size: 100% 105%;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFYAAAAbCAYAAADmkHhFAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAGNJREFUaIHt1tEJgEAMBUEV++8237EJF0FmKjiWx5FzZvbgddfXD/grYSP3rp+gYLERYSPCRoSNCBsRNuLcilhsRNiIsBFhI8JGhI04tyIWGxE2ImxE2IiwEWEjzq2IxUaEjTyufBAQjHKGPAAAAABJRU5ErkJggg==);color:rgb(68, 68, 68);position:relative;display:inline-block;height:27px;vertical-align:middle;outline: invert none 0px; border-width: 1px; border-style: solid; margin: 0px; padding: 0px 8px; border-color: rgba(0, 0, 0, 0.0976562); ">Search this site</div></div></form></div></td>
+</tr>
+<tr style="text-align:left;">
+<td colspan="2" style="color:rgb(0, 0, 0);text-align:left;vertical-align:top;padding: 0px 4px; ">
+</td>
+</tr>
+</tbody></table>
+</div>
+<div style="text-align:left;">
+<div style="text-align:left;">
+<table style="border-collapse:separate;border-spacing:0px;text-align:left;width:100%;table-layout:fixed;border-width: 0px; border-style: outset; border-color: #999; ">
+<tbody style="text-align:left;"><tr style="text-align:left;">
+<td style="color:rgb(0, 0, 0);text-align:left;vertical-align:top;width:150px;padding: {scmCellpadding} {scmCellpadding} {scmCellpadding} 5px; ">
+<div style="text-align:left;font-size:12px;color:rgb(94, 106, 114);background-color: rgb(255, 255, 255); background-image:none;border-width: medium; border-style: none; margin: 0px 0px 6px; border-color: white; "><div style="text-align:left;padding-bottom:0px;overflow-x:hidden;overflow-y:hidden;color:rgb(94, 106, 114);background-color: rgb(255, 255, 255); background-image:none;border-width: medium medium 0px; border-style: none; "><ul style="line-height:1.33em;overflow-x:hidden;overflow-y:hidden;margin: 0px; padding: 0px; "><li style="list-style: none outside none; border-width: 0px medium medium; margin: 0px; padding: 2px 0px 0px; "><div style="direction:ltr;padding-left:5px;"><a href="https://archive.today/o/XgOy5/http://www.chromium.org/chromium-projects" target="_blank" style="display:block;text-decoration:none;text-overflow:ellipsis;overflow-x:hidden;overflow-y:hidden;color:rgb(0, 102, 204);outline: invert none medium; ">Home</a></div></li><li style="list-style: none outside none; margin: 1px 0px 0px; padding: 2px 0px 0px; "><div style="direction:ltr;padding-left:5px;"><a href="https://archive.today/o/XgOy5/http://www.chromium.org/Home" target="_blank" style="display:block;text-decoration:none;text-overflow:ellipsis;overflow-x:hidden;overflow-y:hidden;color:rgb(0, 102, 204);outline: invert none medium; ">Chromium</a></div></li><li style="list-style: none outside none; margin: 1px 0px 0px; padding: 2px 0px 0px; "><div style="direction:ltr;padding-left:5px;"><a href="https://archive.today/o/XgOy5/http://www.chromium.org/chromium-os" target="_blank" style="display:block;text-decoration:none;text-overflow:ellipsis;overflow-x:hidden;overflow-y:hidden;color:rgb(0, 102, 204);outline: invert none medium; ">Chromium OS</a></div></li></ul></div></div>
+<div style="text-align:left;font-size:12px;color:rgb(94, 106, 114);background-color: rgb(255, 255, 255); background-image:none;border-width: medium; border-style: none; margin: 0px 0px 6px; border-color: white; "><h4 style="font-size:13px;text-align:left;color:rgb(72, 72, 72);background-color: rgb(255, 255, 255); background-image:none;background-position: 50% 0%; background-repeat: repeat-x; border-width: medium; border-style: none; margin: 0px; padding: 3px 5px; border-color: white; ">Quick links</h4><div style="text-align:left;padding-bottom:0px;overflow-x:hidden;overflow-y:hidden;color:rgb(94, 106, 114);background-color: rgb(255, 255, 255); background-image:none;border-width: medium medium 0px; border-style: none; "><ul style="line-height:1.33em;overflow-x:hidden;overflow-y:hidden;margin: 0px; padding: 0px; "><li style="list-style: none outside none; border-width: 0px medium medium; margin: 0px; padding: 2px 0px 0px; "><div style="direction:ltr;padding-left:5px;"><a href="https://archive.today/o/XgOy5/http://www.chromium.org/for-testers/bug-reporting-guidelines" target="_blank" style="display:block;text-decoration:none;text-overflow:ellipsis;overflow-x:hidden;overflow-y:hidden;color:rgb(0, 102, 204);outline: invert none medium; ">Report bugs</a></div></li><li style="list-style: none outside none; margin: 1px 0px 0px; padding: 2px 0px 0px; "><div style="direction:ltr;padding-left:5px;"><a href="https://archive.today/o/XgOy5/http://www.chromium.org/developers/discussion-groups" target="_blank" style="display:block;text-decoration:none;text-overflow:ellipsis;overflow-x:hidden;overflow-y:hidden;color:rgb(0, 102, 204);outline: invert none medium; ">Discuss</a></div></li><li style="list-style: none outside none; margin: 1px 0px 0px; padding: 2px 0px 0px; "><div style="direction:ltr;padding-left:5px;"><a href="https://archive.today/o/XgOy5/http://www.chromium.org/system/app/pages/sitemap/hierarchy" target="_blank" style="display:block;text-decoration:none;text-overflow:ellipsis;overflow-x:hidden;overflow-y:hidden;color:rgb(0, 102, 204);outline: invert none medium; ">Sitemap</a></div></li></ul></div></div>
+<div style="text-align:left;font-size:12px;color:rgb(94, 106, 114);background-color: rgb(255, 255, 255); background-image:none;border-width: medium; border-style: none; margin: 0px 0px 6px; border-color: white; "><h4 style="font-size:13px;text-align:left;color:rgb(72, 72, 72);background-color: rgb(255, 255, 255); background-image:none;background-position: 50% 0%; background-repeat: repeat-x; border-width: medium; border-style: none; margin: 0px; padding: 3px 5px; border-color: white; ">Other sites</h4><div style="text-align:left;padding-bottom:0px;overflow-x:hidden;overflow-y:hidden;color:rgb(94, 106, 114);background-color: rgb(255, 255, 255); background-image:none;border-width: medium medium 0px; border-style: none; "><ul style="line-height:1.33em;overflow-x:hidden;overflow-y:hidden;margin: 0px; padding: 0px; "><li style="list-style: none outside none; border-width: 0px medium medium; margin: 0px; padding: 2px 0px 0px; "><div style="direction:ltr;padding-left:5px;"><a href="https://archive.today/o/XgOy5/http://blog.chromium.org/" target="_blank" style="display:block;text-decoration:none;text-overflow:ellipsis;overflow-x:hidden;overflow-y:hidden;color:rgb(0, 102, 204);outline: invert none medium; ">Chromium Blog</a></div></li><li style="list-style: none outside none; margin: 1px 0px 0px; padding: 2px 0px 0px; "><div style="direction:ltr;padding-left:5px;"><a href="https://archive.today/o/XgOy5/http://code.google.com/chrome/extensions/" target="_blank" style="display:block;text-decoration:none;text-overflow:ellipsis;overflow-x:hidden;overflow-y:hidden;color:rgb(0, 102, 204);outline: invert none medium; ">Google Chrome Extensions</a></div></li><li style="list-style: none outside none; margin: 1px 0px 0px; padding: 2px 0px 0px; "><div style="direction:ltr;padding-left:5px;"><a href="https://archive.today/o/XgOy5/https://developers.google.com/chrome/chrome-frame/" target="_blank" style="display:block;text-decoration:none;text-overflow:ellipsis;overflow-x:hidden;overflow-y:hidden;color:rgb(0, 102, 204);outline: invert none medium; ">Google Chrome Frame</a></div></li></ul></div></div>
+<div style="text-align:left;font-size:12px;color:rgb(94, 106, 114);background-color: rgb(255, 255, 255); background-image:none;border-width: medium; border-style: none; margin: 0px 0px 6px; border-color: white; "><h4 style="font-size:13px;text-align:left;color:rgb(72, 72, 72);background-color: rgb(255, 255, 255); background-image:none;background-position: 50% 0%; background-repeat: repeat-x; border-width: medium; border-style: none; margin: 0px; padding: 3px 5px; border-color: white; "></h4><div style="text-align:left;overflow-x:hidden;overflow-y:hidden;color:rgb(94, 106, 114);background-color: rgb(255, 255, 255); background-image:none;padding: 5px; "><div style="direction:ltr;"><span style="font-size:x-small;">Except as otherwise
+</span><a href="https://archive.today/o/XgOy5/http://code.google.com/policies.html%23restrictions" target="_blank" style="color:rgb(0, 102, 204);outline: invert none medium; "><span style="font-size:x-small;">noted</span></a><span style="font-size:x-small;">, the content of this page is licensed under a
+</span><a href="https://archive.today/o/XgOy5/http://creativecommons.org/licenses/by/2.5/" target="_blank" style="color:rgb(0, 102, 204);outline: invert none medium; "><span style="font-size:x-small;">Creative Commons Attribution 2.5 license</span></a><span style="font-size:x-small;">, and examples are licensed under the
+</span><a href="https://archive.today/o/XgOy5/http://src.chromium.org/viewvc/chrome/trunk/src/LICENSE" target="_blank" target="_blank" style="color:rgb(0, 102, 204);outline: invert none medium; "><span style="font-size:x-small;">BSD License</span></a><span style="font-size:x-small;">.<br/></span></div></div></div>
+</td>
+<td style="color:rgb(0, 0, 0);text-align:left;vertical-align:top;padding: {scmCellpadding}; ">
+<div style="text-align:left;background-color: rgb(255, 255, 255); background-image:none;border-width: 1px; border-style: solid; margin: 0px 5px; padding: 0px; border-color: rgb(215, 215, 215); ">
+<div style="text-align:left;">
+</div>
+<div style="text-align:left;padding: 5px 10px 0px; ">
+<a href="https://archive.today/o/XgOy5/http://www.chromium.org/nativeclient" target="_blank" style="direction:ltr;text-align:left;color:rgb(0, 102, 204);outline: invert none medium; ">Native Client</a>‎ &#62; ‎<a href="https://archive.today/o/XgOy5/http://www.chromium.org/nativeclient/design-documents" target="_blank" style="direction:ltr;text-align:left;color:rgb(0, 102, 204);outline: invert none medium; ">5: Design Documents</a>‎ &#62; ‎
+</div>
+<h3 align="left" style="font-weight:bold;color:rgb(0, 0, 0);font-size:22px;margin: 0px; padding: 3px 10px; ">
+<span style="direction:ltr;">NaCl SFI model on x86-64 systems</span>
+</h3>
+<div style="text-align:left;background-color: rgb(255, 255, 255); min-height:150px;padding-bottom:5px;padding-top:15px;background-image:none;">
+<div style="text-align:left;">
+<table style="border-collapse:separate;border-spacing:0px;text-align:left;width:100%;table-layout:fixed;margin: 0px; "><tbody style="text-align:left;"><tr style="text-align:left;"><td style="color:rgb(0, 0, 0);text-align:left;vertical-align:top;padding: 10px; "><div style="direction:ltr;text-align:left;"><div style="margin-top:13px;margin-bottom:13px;text-align:left;"></div><div style="display:block;clear:both;text-align:left;margin: 5px auto 5px 0px; "><div style="clear:both;color:rgb(0, 0, 0);font-size:12px;font-family:Arial, Verdana, sans-serif;display:block;width:auto;border-width: medium; border-style: none; margin: 0px auto 5px 0px; border-color: white; "><div style="text-align:left;overflow-x:visible;overflow-y:visible;color:rgb(0, 0, 0);background-color: rgb(255, 255, 255); "><div style="text-align:left;line-height:1.5em;margin-bottom:5px;overflow-x:hidden;overflow-y:hidden;width:auto;background-color: rgb(241, 241, 241); list-style: none outside none; border-width: 1px; border-style: solid; border-color: rgb(215, 215, 215); "><div style="font-weight:bold;margin: 0px; padding: 4px 5px 0px; ">Contents</div><ol style="text-align:left;line-height:1.5em;margin-left:10px;padding-left:0px;list-style: none outside none; "><li style="text-align:left;line-height:1.5em;list-style: none outside none; "><a href="https://archive.today/o/XgOy5/http://www.chromium.org/nativeclient/design-documents/nacl-sfi-model-on-x86-64-systems%23TOC-Summary" target="_blank" style="color:rgb(0, 102, 204);text-decoration:none;outline: invert none medium; "><strong>1
+</strong>Summary</a></li><li style="text-align:left;line-height:1.5em;list-style: none outside none; "><a href="https://archive.today/o/XgOy5/http://www.chromium.org/nativeclient/design-documents/nacl-sfi-model-on-x86-64-systems%23TOC-Binary-Format" target="_blank" style="color:rgb(0, 102, 204);text-decoration:none;outline: invert none medium; "><strong>2
+</strong>Binary Format</a></li><li style="text-align:left;line-height:1.5em;list-style: none outside none; "><a href="https://archive.today/o/XgOy5/http://www.chromium.org/nativeclient/design-documents/nacl-sfi-model-on-x86-64-systems%23TOC-Runtime-Invariants" target="_blank" style="color:rgb(0, 102, 204);text-decoration:none;outline: invert none medium; "><strong>3
+</strong>Runtime Invariants</a></li><li style="text-align:left;line-height:1.5em;list-style: none outside none; "><a href="https://archive.today/o/XgOy5/http://www.chromium.org/nativeclient/design-documents/nacl-sfi-model-on-x86-64-systems%23TOC-Text-Segment-Rules" target="_blank" style="color:rgb(0, 102, 204);text-decoration:none;outline: invert none medium; "><strong>4
+</strong>Text Segment Rules</a></li><li style="text-align:left;line-height:1.5em;list-style: none outside none; "><a href="https://archive.today/o/XgOy5/http://www.chromium.org/nativeclient/design-documents/nacl-sfi-model-on-x86-64-systems%23TOC-List-of-Pseudo-instructions" target="_blank" style="color:rgb(0, 102, 204);text-decoration:none;outline: invert none medium; "><strong>5
+</strong>List of Pseudo-instructions</a></li></ol></div></div></div></div><div style="margin-top:13px;margin-bottom:13px;text-align:left;"></div>
+<h2 style="text-align:left;"><a name="TOC-Summary" style="text-align:left;color:rgb(0, 102, 204);outline: invert none medium; "></a>Summary</h2>
+<div style="margin-top:13px;margin-bottom:13px;text-align:left;">This document addresses the details of the Software Fault Isolation (SFI) model for executable code that can be run in <a href="https://archive.today/o/XgOy5/http://code.google.com/p/nativeclient/" target="_blank" title="NativeClient" style="text-align:left;color:rgb(0, 102, 204);outline: invert none medium; ">Native Client</a> on an x86-64 system. An overview of this model can be found in the paper: <a href="https://archive.today/o/XgOy5/http://research.google.com/pubs/pub35649.html" target="_blank" title="Adapting Software Fault Isolation to Contemporary CPU Architectures" style="text-align:left;color:rgb(0, 102, 204);outline: invert none medium; ">Adapting Software Fault Isolation to Contemporary CPU Architectures</a>. The primary focus of the SFI model is a Windows x86-64 system but the same techniques can be applied to run identical x86-64 binaries on other x86-64 systems such as Linux, Mac, FreeBSD, etc, so the description of the SFI model tries to abstract away system dependencies when possible.</div>
+<div style="margin-top:13px;margin-bottom:13px;text-align:left;"><font size="-2" style="text-align:left;">Please note: throughout this document we use the AT&#38;T notation for assembler syntax, in which the target operand appears last, e.g.
+<font face="courier new" style="text-align:left;">mov src, dst</font></font>.</div>
+<h2 style="text-align:left;"><a name="TOC-Binary-Format" style="text-align:left;color:rgb(0, 102, 204);outline: invert none medium; "></a>Binary Format</h2>
+<div style="margin-top:13px;margin-bottom:13px;text-align:left;">The format of Native Client executable binaries is identical to the x86-64 ELF binary format (<a href="https://archive.today/o/XgOy5/http://en.wikipedia.org/wiki/Executable_and_Linkable_Format" target="_blank" title="[0]" style="text-align:left;color:rgb(0, 102, 204);outline: invert none medium; ">[0]</a>, <a href="https://archive.today/o/XgOy5/http://www.sco.com/developers/devspecs/gabi41.pdf" target="_blank" title="[1]" style="text-align:left;color:rgb(0, 102, 204);outline: invert none medium; ">[1]</a>, <a href="https://archive.today/o/XgOy5/http://www.sco.com/developers/gabi/latest/contents.html" target="_blank" title="[2]" style="text-align:left;color:rgb(0, 102, 204);outline: invert none medium; ">[2]</a>,
+<a href="https://archive.today/o/XgOy5/http://downloads.openwatcom.org/ftp/devel/docs/elf-64-gen.pdf" target="_blank" style="text-align:left;color:rgb(0, 102, 204);outline: invert none medium; ">[3]</a>) for Linux or BSD with a few extra requirements. The additional rules that a Native Client ELF binary must follow are:</div>
+<ul style="text-align:left;"><li style="text-align:left;">The ELF magic OS ABI field must be 123.</li>
+<li style="text-align:left;">The ELF magic OS ABI VERSION field must be 5.</li>
+<li style="text-align:left;">The ELF e_flags field must be 0x200000 (32-byte alignment).</li>
+<li style="text-align:left;">There must be exactly one PT_LOAD text segment. It must begin at 0x20000 (128 kB) and be marked RX (no W). The contents of the text segment must follow <a href="https://archive.today/o/XgOy5/http://www.chromium.org/nativeclient/design-documents/nacl-sfi-model-on-x86-64-systems%23TOC-Text-Segment-Rules" target="_blank" title="Text_Segment_Rules" style="text-align:left;color:rgb(0, 102, 204);outline: invert none medium; ">Text_Segment_Rules</a>.<br style="text-align:left;"/>
+</li>
+<li style="text-align:left;">There can be at most one PT_LOAD data segment marked R.</li>
+<li style="text-align:left;">There can be at most one PT_LOAD data segment marked RW.</li>
+<li style="text-align:left;">There can be at most one PT_GNU_STACK segment. It must be marked RW.</li>
+<li style="text-align:left;">All segments must end before limit address (4 GiB).</li></ul>
+<h2 style="text-align:left;"><a name="TOC-Runtime-Invariants" style="text-align:left;color:rgb(0, 102, 204);outline: invert none medium; "></a>Runtime Invariants</h2>
+<div style="margin-top:13px;margin-bottom:13px;text-align:left;">To ensure fault isolation at runtime, the system must maintain a number of runtime <i style="text-align:left;">invariants</i> across the lifetime of the running program. Both the <i style="text-align:left;">Validator</i> and the <i style="text-align:left;">Service Runtime</i> are responsible for maintaining the invariants. See the paper for the rationale for the invariants:<br style="text-align:left;"/>
+</div>
+<ul style="text-align:left;"><li style="text-align:left;">RIP always points to valid instruction boundary (the validator must ensure this with direct jumps and direct calls).<br style="text-align:left;"/>
+</li>
+<li style="text-align:left;">R15 (aka RBASE and RZP) is never modified by code (the validator must ensure this). Low 32 bits of RZP are all zero (loader must ensure this).</li>
+<li style="text-align:left;">RIP, RBP and RSP are always in the <b style="text-align:left;"><i style="text-align:left;">safe zone</i></b>: between R15 and R15+4GiB</li>
+<ul style="text-align:left;"><li style="text-align:left;">Exception: RSP and RBP are allowed to be in the range of 0..4GiB inside pseudo-instructions: naclrestbp, naclrestsp, naclspadj, naclasp, naclssp.<br style="text-align:left;"/>
+</li></ul>
+<li style="text-align:left;">84GiB are allocated for NaCl module (i.e. <b style="text-align:left;"><i style="text-align:left;">untrusted region</i></b>):</li>
+<ul style="text-align:left;"><li style="text-align:left;">R15-40GiB..R15 and R15+4GIB..R15+44GiB are buffer zones with PROT_NONE flags.</li>
+<li style="text-align:left;">The 4GB <i style="text-align:left;">safe zone</i> has pages with either PROT_WRITE or PROT_EXEC but must not have PROT_WRITE+PROT_EXEC pages.</li>
+<li style="text-align:left;">All executable code in PROT_EXEC pages is validatable and guaranteed to obey the invariant.</li></ul>
+<li style="text-align:left;">Trampoline/springboard code is mapped to a non-writable region in the <i style="text-align:left;">untrusted 84GB region</i>; each trampoline/springboard is 32-byte aligned and fits within a single <i style="text-align:left;">bundle.</i></li>
+<li style="text-align:left;">The OS must not put any internal structures/code into the untrusted region at any time (not using OS dynamic linker, etc)</li></ul>
+<h2 style="text-align:left;"><a name="TOC-Text-Segment-Rules" style="text-align:left;color:rgb(0, 102, 204);outline: invert none medium; "></a>Text Segment Rules</h2>
+<ul style="text-align:left;"><li style="text-align:left;">The validation process must ensure that the text segment complies with the following rules. The validation process must complete successfully strictly before executing any instruction of the untrusted code.</li><li style="text-align:left;">The following instructions are illegal and must be rejected by the validator (the list is not exhaustive as the validator uses a whiteist, not a blacklist; this means there is a large but finite list of instructions the validator allows, not a small list of instructions the validator rejects):</li>
+<ul style="text-align:left;"><li style="text-align:left;">any privileged instructions</li>
+<li style="text-align:left;">mov to/from segment registers</li>
+<li style="text-align:left;margin-top:0px;margin-bottom:0px;font-family:'Courier New';">int</li>
+<li style="text-align:left;"><font face="courier new" style="text-align:left;">pusha/popa</font> (not dangerous but not needed for gcc)<br style="text-align:left;"/>
+</li></ul>
+<li style="text-align:left;">There must be space for at least 32 bytes after the text segment and before the next segment in ELF (towards higher addresses) that ends strictly at a 64K boundary (a minimum page size for untrusted code).  This space will be padded with <font face="courier new" style="text-align:left;">HLT
+</font><font face="arial, sans-serif" style="text-align:left;">instructions as part of the validation process, along with the optional 64K page</font>.</li>
+<li style="text-align:left;">Neither instructions nor <i style="text-align:left;">pseudo-instructions</i> are permitted to span a 32-byte boundary.<br style="text-align:left;"/>
+</li>
+<li style="text-align:left;">The ELF entry address must be 32-byte aligned.</li>
+<li style="text-align:left;">Direct CALL/JUMP targets:</li>
+<ul style="text-align:left;"><li style="text-align:left;">must point to a valid instruction boundary</li>
+<li style="text-align:left;">must not point into a <i style="text-align:left;">pseudo-instruction</i></li>
+<li style="text-align:left;">must not point between a <i style="text-align:left;">restricted register</i> (see below for definition) producer instruction and it's corresponding restricted register consumer instruction.</li></ul>
+<li style="text-align:left;">CALL instructions must be 5 bytes before a 32-byte boundary, so that the return address will be 32-byte aligned.</li>
+<li style="text-align:left;">Indirect call targets must be 32-byte aligned. Instead of indirect CALL/JMP x, use <font face="'courier new'" style="text-align:left;">nacljmp</font> and <font face="'courier new'" style="text-align:left;">naclcall</font> (see below for definitions of these <i style="text-align:left;">pseudo-instructions</i>)<br style="text-align:left;"/>
+</li>
+<li style="text-align:left;">All instructions that
+<b style="text-align:left;">read</b>
+or <b style="text-align:left;">write</b> from/to memory must use one of the four registers RZP, RIP, RBP or RSP as a base, restricted (see below) register index (multiplied by 0, 1, 2, 4 or 8) and constant displacement (optional).</li>
+<ul style="text-align:left;"><li style="text-align:left;">Exception to this rule: string instructions are allowed if used in following sequences (the sequences should not cross <i style="text-align:left;">bundle</i> boundaries; segment overrides are disallowed):<br style="text-align:left;"/>
+<font face="'courier new'" style="text-align:left;">mov %edi, %edi<br style="text-align:left;"/>
+lea (%rZP,%rdi),%rdi<br style="text-align:left;"/>
+[rep] stos</font> (other string instructions can be used here)<br style="text-align:left;"/>
+Note: this is identical to the <i style="text-align:left;">pseudo-instruction</i>: <font face="'courier new'" style="text-align:left;">[rep] stos %?ax, %nacl:(%rdi),%rZP</font><br style="text-align:left;"/>
+</li></ul>
+<li style="text-align:left;">An operand of a command is said to be a<i style="text-align:left;"> <b style="text-align:left;">restricted register</b></i> iff it is a register that is the target of a 32-bit move in the immediately-preceding command in the same <i style="text-align:left;">bundle</i> (consider the previous command as additional sandboxing prefix):<br style="text-align:left;"/>
+<font face="'courier new'" style="text-align:left;">mov ..., %eXX </font>(any 32-bit register can be used here; the first operand is unrestricted but often is the same register)</li>
+<li style="text-align:left;">Instructions capable of changing <font face="'courier new'" style="text-align:left;">%RBP</font> and <font face="'courier new'" style="text-align:left;">%</font><font face="'courier new'" style="text-align:left;">RSP</font> are forbidden, except the instruction sequences in the whitelist below, which must not cross <i style="text-align:left;">bundle</i> boundaries:</li>
+<ul style="text-align:left;"><li style="text-align:left;"><font face="'courier new'" style="text-align:left;">mov %rbp, %rsp</font></li>
+<li style="text-align:left;"><font face="'courier new'" style="text-align:left;">mov %rsp, %rbp</font></li>
+<li style="text-align:left;"><font face="'courier new'" style="text-align:left;">mov ..., %ebp<br style="text-align:left;"/>
+add %rZP, %rbp </font>(restoration of <font face="'courier new'" style="text-align:left;">%RBP</font> from memory, register or stack - keeps the invariant intact)</li>
+<li style="text-align:left;"><font face="'courier new'" style="text-align:left;">mov ..., %esp<br style="text-align:left;"/>
+add %rZP, %rsp </font>(restoration of <font face="'courier new'" style="text-align:left;">%RSP</font> from memory, register or stack - keeps the invariant intact)</li>
+<li style="text-align:left;"><font face="'courier new'" style="text-align:left;">lea xxx(%rbp), %esp<br style="text-align:left;"/>
+add %rZP, %rsp </font>(restoration of <font face="'courier new'" style="text-align:left;">%RSP</font> from <font face="'courier new'" style="text-align:left;">%RBP</font> with adjust)</li>
+<li style="text-align:left;"><font face="'courier new'" style="text-align:left;">sub ..., %esp<br style="text-align:left;"/>
+add %rZP, %rsp </font>(stack space allocation)</li>
+<li style="text-align:left;"><font face="'courier new'" style="text-align:left;">add ..., %esp<br style="text-align:left;"/>
+add %rZP, %rsp </font>(stack space deallocation)</li>
+<li style="text-align:left;"><font face="'courier new'" style="text-align:left;">and $XX, <font face="'courier new'" style="text-align:left;">%rsp</font> </font>(alignment; <font face="'courier new'" style="text-align:left;">XX</font> must be between -128 and -1)</li>
+<li style="text-align:left;"><font face="'courier new'" style="text-align:left;">pushq ...</font></li>
+<li style="text-align:left;"><font face="'courier new'" style="text-align:left;">popq ...</font>(except pop
+<font face="'courier new'" style="text-align:left;">%RSP</font>,
+<font face="'courier new'" style="text-align:left;">pop %RBP</font>)<br style="text-align:left;"/>
+</li></ul></ul>
+<h2 style="text-align:left;"><a name="TOC-List-of-Pseudo-instructions" style="text-align:left;color:rgb(0, 102, 204);outline: invert none medium; "></a>List of Pseudo-instructions</h2>
+<div style="text-align:left;margin-top:0px;margin-bottom:0px;direction:inherit;">Pseudo-instructions were introduced to let the compiler maintain the invariants without needing to know the code alignment rules. The assembler guarantees 32-bit alignment for all <i style="text-align:left;">pseudo-instructions</i> in the table below. In addition, to the pseudo-instructions, one pseudo-operand prefix is introduced: <font face="'courier new'" style="text-align:left;"><b style="text-align:left;">%nacl</b></font>. Presence of the <font face="courier new" style="text-align:left;">%nacl</font> operand prefix ensures that:<br style="text-align:left;"/>
+<ul style="text-align:left;"><li style="margin-top:0px;margin-bottom:0px;text-align:left;">The instruction "<font face="'courier new'">%mov %eXX, %eXX</font>" is added immediately before the actual command using prefix <font face="courier new">%nacl</font>
+(where <font face="'courier new'">%eXX</font> is a 32-bit part of the index register of the actual command, for example: in operand <font face="courier new">%nacl:(,%r11)</font>,  <font face="courier new"><font face="times new roman">the notation</font> %eXX</font> is referring to <font face="courier new">%r11d</font>)</li>
+<li style="text-align:left;">The resulting sequence of two instructions does not cross the <i style="text-align:left;">bundle</i> boundary.<br style="text-align:left;"/>
+</li></ul>
+<br style="text-align:left;"/>
+For example, the instruction:</div>
+<div style="text-align:left;margin-top:0px;margin-bottom:0px;direction:inherit;margin-left:40px;"><font face="'courier new'" style="text-align:left;">mov %eax,%nacl:(%r15,%rdi,2)</font><br style="text-align:left;"/>
+</div>
+<br style="text-align:left;"/>
+<div style="text-align:left;margin-top:0px;margin-bottom:0px;direction:inherit;">is translated by the assembler to:<br style="text-align:left;"/>
+</div>
+<div style="text-align:left;margin-top:0px;margin-bottom:0px;direction:inherit;margin-left:40px;"><font face="'courier new'" style="text-align:left;">mov %edi,%edi</font><br style="text-align:left;"/>
+</div>
+<div style="text-align:left;margin-top:0px;margin-bottom:0px;direction:inherit;margin-left:40px;"><font face="'courier new'" style="text-align:left;">mov %eax,(%r15,%rdi,2)</font><br style="text-align:left;"/>
+</div>
+<br style="text-align:left;"/>
+The complete list of introduced <i style="text-align:left;">pseudo-instructions</i> is as follows:<br style="text-align:left;"/>
+<br style="text-align:left;"/>
+<table style="border-spacing:0px;height:631px;width:688px;text-align:left;font-size:1em;line-height:inherit;border-collapse:collapse;border-width: 1px; border-style: outset; margin: 0px; border-color: #999; ">
+<tbody style="text-align:left;">
+<tr style="text-align:left;">
+<td style="width:55%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); ">Pseudo-instruction</td>
+<td style="width:50%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="times new roman">Is translated to</font><br/>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td style="width:55%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">[rep] cmps %nacl:(%rsi),%nacl:(%rdi),%rZP</font><br/>
+<i>(sandboxed <font face="'courier new'">cmps</font>)</i><br/>
+</td>
+<td style="width:50%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'"><font face="'courier new'">mov %esi,%esi<br/>
+lea (%rZP,%rsi,1),%rsi<br/>
+mov %edi,%edi<br/>
+</font>lea (%rZP,%rdi,1),%rdi<br/>
+[rep] cmps (%rsi),(%rdi)</font><i><br/>
+</i>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td style="width:55%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">[rep] movs %nacl:(%rsi),%nacl:(%rdi),%rZP</font><br/>
+<i>(sandboxed <font face="'courier new'">movs</font>)</i><br/>
+</td>
+<td style="width:50%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'"><font face="'courier new'">mov %esi,%esi<br/>
+lea (%rZP,%rsi,1),%rsi<br/>
+mov %edi,%edi<br/>
+</font>lea (%rZP,%rdi,1),%rdi<br/>
+[rep] movs (%rsi),(%rdi)</font><i><br/>
+</i>
+</td>
+</tr>
+<tr style="text-align:left;">
+<td style="width:55%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">naclasp ...,%rZP</font><br/>
+<i>(sandboxed stack increment)</i></td>
+<td style="width:50%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">add ...,%esp<br/>
+add %rZP,%rsp</font></td>
+</tr>
+<tr style="text-align:left;">
+<td style="width:55%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">naclcall %eXX,%rZP</font><br/>
+<i>(sandboxed indirect call)</i></td>
+<td style="width:50%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">and $-32, %eXX<br/>
+add %rZP, %rXX<br/>
+call *%rXX</font><br/>
+<i>Note: the assembler ensures all calls (including
+<font face="'courier new'">naclcall</font>) will end at the bundle boundary.</i></td>
+</tr>
+<tr style="text-align:left;">
+<td style="width:55%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">nacljmp %eXX,%rZP</font><br/>
+<i>(sandboxed indirect jump)</i></td>
+<td style="width:50%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">and $-32,%eXX<br/>
+add %rZP,%rXX<br/>
+jmp *%rXX<br/>
+</font></td>
+</tr>
+<tr style="text-align:left;">
+<td style="width:55%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">naclrestbp ...,%rZP</font><br/>
+<i>(sandboxed <font face="'courier new'">%ebp/rbp</font> restore)</i></td>
+<td style="width:50%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">mov ...,%ebp<br/>
+add %rZP,%rbp</font></td>
+</tr>
+<tr style="text-align:left;">
+<td style="width:55%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">naclrestsp ...,%rZP
+<i>(sandboxed <font face="'courier new'">%esp/rsp</font> restore)</i></font></td>
+<td style="width:50%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">mov ...,%esp<br/>
+add %rZP,%rsp</font></td>
+</tr>
+<tr style="text-align:left;">
+<td style="width:55%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">naclrestsp_noflags ...,%rZP
+<i>(sandboxed <font face="'courier new'">%esp/rsp</font> restore)</i></font></td>
+<td style="width:50%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">mov ...,%esp<br/>
+lea (%rsp,%rZP,1),%rsp</font></td>
+</tr>
+<tr style="text-align:left;">
+<td style="width:55%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">naclspadj $N,%rZP</font><br/>
+<i>(sandboxed <font face="'courier new'">%esp/rsp</font> restore from <font face="'courier new'">%rbp</font>; incudes <font face="'courier new'">$N</font> offset)</i></td>
+<td style="width:50%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">lea N(%rbp),%esp<br/>
+add %rZP,%rsp</font></td>
+</tr>
+<tr style="text-align:left;">
+<td style="width:55%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">naclssp ...,%rZP</font><br/>
+<i>(sandboxed stack decrement)</i></td>
+<td style="width:50%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">sub ...,%esp<br/>
+add %rZP,%rsp</font></td>
+</tr>
+<tr style="text-align:left;">
+<td style="width:55%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">[rep] scas %nacl:(%rdi),%?ax,%rZP<br/>
+</font>
+<i>(sandboxed <font face="'courier new'">stos</font>)</i></td>
+<td style="width:50%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">mov %edi,%edi<br/>
+lea (%rZP,%rdi,1),%rdi<br/>
+[rep] scas (%rdi),%?ax<br/>
+</font></td>
+</tr>
+<tr style="text-align:left;">
+<td style="width:55%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">[rep] stos %?ax,%nacl:(%rdi),%rZP</font><br/>
+<i>(sandboxed <font face="'courier new'">stos</font>)</i></td>
+<td style="width:50%;color:rgb(0, 0, 0);vertical-align:top;direction:inherit;border-width: 1px; border-style: inset; padding: 3px; border-color: rgb(0, 0, 0); "><font face="'courier new'">mov %edi,%edi<br/>
+lea (%rZP,%rdi,1),%rdi<br/>
+[rep] stos %?ax,(%rdi)<br/>
+</font></td>
+</tr>
+</tbody>
+</table></div></td></tr></tbody></table>
+</div>
+</div>
+<div style="text-align:left;background-color: rgb(241, 241, 241); font-size:12px;">
+<div style="text-align:left;">
+</div>
+<a name="page-comments" style="text-align:left;color:rgb(0, 102, 204);outline: invert none medium; "></a>
+<div style="text-align:left;"><div style="text-align:left;padding: 10px; "><div style="text-align:left;position:relative;"><div style="text-align:left;position:absolute;background-color: rgb(255, 255, 255); opacity:0.75;height:92px;width:100%;z-index:1;"></div><div style="text-align:left;position:relative;z-index:2;"><div style="text-align:left;float:left;color:rgb(0, 0, 0);font-weight:bold;font-size:17px;font-family:'Trebuchet MS', arial, sans-serif;padding: 10px 0px 10px 20px; ">Comments</div></div><div style="direction:ltr;position:relative;z-index:2;clear:both;text-align:left;padding: 0px 10px 7px; "><div style="color:black;font-family:Arial, sans-serif, sans;font-size:13px;white-space:normal;line-height:140%;outline: invert none medium; "><div style="position:relative;"><div style="position:relative;zoom:1;display:none;margin: 6px 29px 10px 20px; "><img src="551a53211ed217c8d2cb7ad03ac401d921dbee46.png" style="height:48px;width:48px;left:0px;position:absolute;"/><div style="margin-left:61px;position:relative;zoom:1;"><div style="position:relative;display:inline-block;font-size:12px;font-weight:bold;margin-bottom:3px;top:-3px;">Anonymous</div><div style="position:relative;zoom:1;top:-4px;"><textarea style="text-align:left;background-color: rgb(255, 255, 255); display:inline-block;vertical-align:top;border-top-left-radius:1px 1px;border-top-right-radius:1px 1px;border-bottom-right-radius:1px 1px;border-bottom-left-radius:1px 1px;box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; color:rgb(153, 153, 153);font-family:Arial, sans-serif;overflow-x:hidden;overflow-y:hidden;resize:none;width:100%;font-size:12px;height:30px;outline: invert none 0px; border-width: 1px; border-style: solid; margin: 0px; padding: 4px; border-color: rgb(200, 200, 200); "></textarea><div style="border-top-color:transparent;border-right-color:rgb(200, 200, 200);border-bottom-color:transparent;height:0px;left:-7px;position:absolute;top:3px;border-width: 7px 8px 7px medium; border-style: solid solid solid none; "></div><div style="border-top-color:transparent;border-right-color:rgb(255, 255, 255);border-bottom-color:transparent;height:0px;left:-6px;position:absolute;top:3px;border-width: 7px 8px 7px medium; border-style: solid solid solid none; "></div><div style="display:none;">Your +mention will add people to this post and send an email.</div><div style="display:none;">Making sure people you mentioned have access…</div><div style="display:none;zoom:1;"><div title="Post comment" style="position:relative;display:inline-block;border-top-left-radius:2px 2px;border-top-right-radius:2px 2px;border-bottom-right-radius:2px 2px;border-bottom-left-radius:2px 2px;cursor:default;font-size:11px;text-align:center;white-space:nowrap;height:27px;line-height:27px;min-width:54px;-webkit-box-shadow:none;box-shadow:none;background-color: rgb(77, 144, 254); background-size: 100% 105%;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAbCAYAAAAdx42aAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAFpJREFUSInt1tENgFAMQlE0rOduTmwd4/TjdQEaLiW9nvebwGmG6qcTu8BN1ZM02IFi/QUODL6CE8INRWSHI1gQQp0BjaDYgAUO+AU0Av0RHQTcAV/F+iPiCH4BmyMcOxIikwAAAABJRU5ErkJggg==);color:rgb(255, 255, 255);font-weight:bold;outline: invert none 0px; border-width: 1px; border-style: solid; margin: 8px 7px 0px 0px; padding: 0px 8px; border-color: rgb(48, 121, 237); "><span style="font-weight:bold;">Comment</span></div><div title="Discard comment" style="position:relative;display:inline-block;border-top-left-radius:2px 2px;border-top-right-radius:2px 2px;border-bottom-right-radius:2px 2px;border-bottom-left-radius:2px 2px;cursor:default;font-size:11px;font-weight:bold;text-align:center;white-space:nowrap;height:27px;line-height:27px;min-width:54px;-webkit-box-shadow:none;box-shadow:none;background-color: rgb(245, 245, 245); background-size: 100% 105%;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAbCAYAAAAdx42aAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAD1JREFUSInt08ENADAIw8C26v7b5h3GMA+zACeQb5IecB65fAXgt+gH+AsIEIADzFCAABxghgIE4AAzxAEDh28QEIooUpsAAAAASUVORK5CYII=);color:rgb(68, 68, 68);outline: invert none 0px; border-width: 1px; border-style: solid; margin: 0px; padding: 0px 8px; border-color: rgba(0, 0, 0, 0.0976562); ">Cancel</div></div></div></div></div><div style="position:relative;color:rgb(51, 51, 51);display:inline-block;padding: 12px 0px 12px 20px; ">You do not have permission to add comments.</div><div style="color:black;font-family:Arial, sans-serif, sans;font-size:13px;white-space:normal;padding: 0px 29px 0px 20px; "></div></div><div></div></div><span style="position:absolute;"></span></div></div></div></div>
+</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<div style="text-align:left;">
+<div style="text-align:left;">
+<div style="text-align:left;">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div style="text-align:left;">
+<div style="text-align:center;font-size:11px;"><div style="margin: 0px; padding: 5px; "><a href="https://archive.today/o/XgOy5/https://www.google.com/a/UniversalLogin?service=jotspot&continue=http://sites.google.com/a/chromium.org/dev/nativeclient/design-documents/nacl-sfi-model-on-x86-64-systems" target="_blank" style="margin-left:0.5em;margin-right:0.5em;color:rgb(128, 128, 8);outline: invert none medium; ">Sign in</a>|<a href="https://archive.today/o/XgOy5/http://www.chromium.org/system/app/pages/reportAbuse" target="_blank" target="_blank" style="margin-left:0.5em;margin-right:0.5em;color:rgb(128, 128, 8);outline: invert none medium; ">Report Abuse</a>|<a href="#" style="margin-left:0.5em;margin-right:0.5em;color:rgb(128, 128, 8);outline: invert none medium; ">Print Page</a>|<a href="https://archive.today/o/XgOy5/http://www.chromium.org/system/app/pages/removeAccess" target="_blank" target="_blank" style="margin-left:0.5em;margin-right:0.5em;color:rgb(128, 128, 8);outline: invert none medium; ">Remove Access</a>|<span style="margin-left:0.5em;margin-right:0.5em;font-size:10px;color:rgb(128, 128, 8);">Powered By</span>
+<b style="color:rgb(128, 128, 8);"><a href="https://archive.today/o/XgOy5/http://sites.google.com/" target="_blank" style="color:rgb(0, 102, 204);outline: invert none medium; ">Google Sites</a></b></div></div>
+</div>
+</div>
+</div>
+<div style="text-align:left;">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align:left;display:none;">
+</div>
+
+<div style="text-align:left;display:none;"><div class="html1" style="width: 0px;text-align: left;overflow-x: auto;overflow-y: auto; background-color: rgba(0, 0, 0, 0);position: relative;display:inline-block;vertical-align:bottom;overflow-x:auto;overflow-y:auto;text-align:left;height:0px;width:100%;border-width: 2px;; border-style: inset; margin: 0px; ; z-index: 0"><div class="html" style="text-align:left;overflow-x:visible;overflow-y:visible;"><div class="body" style="vertical-align:bottom;min-height:0px;color:rgb(0, 0, 0);text-align:left;overflow-x:visible;overflow-y:visible;margin: 8px; "></div></div></div></div></div></div></div></body></html>
